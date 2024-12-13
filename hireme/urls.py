@@ -20,5 +20,6 @@ from hr.views import *
 from applicant.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index)
+    path('hrindex/', index),
+    path('short/', short),
 ]

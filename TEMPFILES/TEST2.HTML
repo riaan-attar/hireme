@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Processing System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto p-8">
+        <div class="bg-gray-800 rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
+            <h1 class="text-3xl font-bold mb-6">Applicant</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h2 class="text-xl font-semibold mb-4">Inputs</h2>
+                    <div class="space-y-2">
+                        <input type="text" placeholder="Name" class="w-full px-4 py-2 bg-gray-700 rounded">
+                        <input type="tel" placeholder="Number" class="w-full px-4 py-2 bg-gray-700 rounded">
+                        <input type="email" placeholder="Email" class="w-full px-4 py-2 bg-gray-700 rounded">
+                        <input type="file" accept=".pdf,.doc,.docx" class="w-full px-4 py-2 bg-gray-700 rounded">
+                        <input type="url" placeholder="LinkedIn" class="w-full px-4 py-2 bg-gray-700 rounded">
+                        <input type="url" placeholder="GitHub" class="w-full px-4 py-2 bg-gray-700 rounded">
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Process Application
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <h2 class="text-xl font-semibold mb-4">After Processing</h2>
+                    <div class="space-y-2">
+                        <div class="bg-gray-700 p-4 rounded">
+                            <h3 class="font-semibold">SKILLS (LIST)</h3>
+                            <ul class="list-disc list-inside" id="skillsList">
+                                <!-- Skills will be populated here -->
+                            </ul>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded">
+                            <h3 class="font-semibold">JD SCORE</h3>
+                            <p id="jdScore">-</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded">
+                            <h3 class="font-semibold">SKILLS SCORE</h3>
+                            <p id="skillsScore">-</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded">
+                            <h3 class="font-semibold">OVERALL SCORE</h3>
+                            <p id="overallScore">-</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('button').addEventListener('click', () => {
+            // Simulating processing
+            const skills = ['JavaScript', 'React', 'Node.js', 'Python'];
+            const jdScore = Math.floor(Math.random() * 100);
+            const skillsScore = Math.floor(Math.random() * 100);
+            const overallScore = Math.floor((jdScore + skillsScore) / 2);
+
+            // Updating the UI
+            document.getElementById('skillsList').innerHTML = skills.map(skill => `<li>${skill}</li>`).join('');
+            document.getElementById('jdScore').textContent = `${jdScore}/100`;
+            document.getElementById('skillsScore').textContent = `${skillsScore}/100`;
+            document.getElementById('overallScore').textContent = `${overallScore}/100`;
+        });
+    </script>
+</body>
+</html>
