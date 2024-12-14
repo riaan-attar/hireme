@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('hrindex/', index),
     path('short/', short),
+    path('profile/', profile),
 ]

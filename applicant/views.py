@@ -1,6 +1,10 @@
 from django.shortcuts import render
 
 # Create your views here.
+def profile(request):
+    return render(request, 'applicant/profile.html')
+
+
 def pdfkey(pdf_path):
     doc = fitz.open(pdf_path)
     extracted_text = ""
