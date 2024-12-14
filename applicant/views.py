@@ -1,5 +1,5 @@
-from django.shortcuts import render
 
+<<<<<<< Updated upstream
 # Create your views here.
 def profile(request):
     return render(request, 'applicant/profile.html')
@@ -66,3 +66,5 @@ def thank(request):
         os.unlink(temp_file_path)
         applicant = Applicant.objects.create(name=name, phone=phone, email=email, keywords=keywords)
     return render(request, 'thank.html')
+=======
+>>>>>>> Stashed changes
